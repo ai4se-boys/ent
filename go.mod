@@ -7,6 +7,7 @@ toolchain go1.24.0
 require (
 	ariga.io/atlas v0.36.2-0.20250730182955-2c6300d0a3e1
 	github.com/DATA-DOG/go-sqlmock v1.5.0
+	github.com/bmatcuk/doublestar/v4 v4.9.1
 	github.com/go-openapi/inflect v0.19.0
 	github.com/google/uuid v1.3.0
 	github.com/gorilla/websocket v1.5.0
@@ -16,8 +17,11 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
 	github.com/olekukonko/tablewriter v1.0.8
+	github.com/smacker/go-tree-sitter v0.0.0-20240827094217-dd81d9e9be82
+	github.com/sourcegraph/go-lsp v0.0.0-20240223163137-f80c5dd31dfd
+	github.com/sourcegraph/jsonrpc2 v0.2.1
 	github.com/spf13/cobra v1.7.0
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.9.0
 	go.opencensus.io v0.24.0
 	golang.org/x/sync v0.11.0
 	golang.org/x/tools v0.30.0
@@ -46,7 +50,7 @@ require (
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/sergi/go-diff v1.3.1 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/stretchr/objx v0.5.0 // indirect
+	github.com/stretchr/objx v0.5.2 // indirect
 	github.com/zclconf/go-cty v1.14.4 // indirect
 	github.com/zclconf/go-cty-yaml v1.1.0 // indirect
 	golang.org/x/mod v0.24.0 // indirect
