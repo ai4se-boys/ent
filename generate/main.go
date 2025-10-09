@@ -140,7 +140,7 @@ type YmlConfig struct {
 }
 
 var (
-	MaxWorkers  = 30
+	MaxWorkers  = 20
 	TestTimeout = 300
 )
 
