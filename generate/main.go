@@ -140,7 +140,7 @@ type YmlConfig struct {
 }
 
 var (
-	MaxWorkers  = 20
+	MaxWorkers  = 30
 	TestTimeout = 300
 )
 
@@ -966,7 +966,7 @@ func IsEasyCase(item DataSetItem) bool {
 	// 针对 ground_truth 太短的进行过滤
 	groundTruth := item.GroundTruth
 	groundTruthLen := len(strings.Split(groundTruth, "\n"))
-	if groundTruthLen < 3 {
+	if groundTruthLen < 10 {
 		return true
 	}
 	// 针对没有第三方仓库依赖的进行过滤
@@ -1002,6 +1002,17 @@ func main() {
 	datasetOutputFile := filepath.Join(DatasetOutputDir, "dataset.json")
 	WriteJSON(datasetOutputFile, report)
 	log.Printf("%s has writed\n", datasetOutputFile)
+	newDataset := []DataSetItem{}
+	for _, item := range report.Dataset {
+		if item.EndLine - item.StartLine < 10 {
+			continue
+		}
+		if float64(len(item.CoveredLines)) / float64(item.EndLine - item.StartLine + 1) < 0.8 {
+			continue
+		}
+		newDataset = append(newDataset, item)
+	}
+	report.Dataset = newDataset
 	report, err = HandlerCodeDepContexts(report)
 	if err != nil {
 		log.Fatalf("Fatal: Failed to handler code dep contexts: %v", err)
